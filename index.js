@@ -4,7 +4,7 @@ const { connectToDB, getConnection } = require('./sql');
 require('dotenv').config();
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-
+const productServices = require('./ProductServices')
 const app = express();
 
 // A RESTFul API accepts JSON (is the norm for JavaScript)
@@ -49,7 +49,7 @@ async function main() {
     const connection = getConnection();
     app.get('/api/products', async function (req, res) {
         //get all the product
-        const [products] = await connection.execute("SELECT * FROM products");
+        const [products] = await productServices.getProducts();
         res.json({
             products
         })
