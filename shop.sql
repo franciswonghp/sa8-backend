@@ -1,7 +1,8 @@
 
-CREATE DATABASE shops
 
+USE shops;
 -- SQL file for creating and manipulating a simple products table
+
 -- DDL to create the products table
 CREATE TABLE products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
